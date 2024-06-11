@@ -1,13 +1,127 @@
-@media print {
+/* CSS Variables */
+:root {
+  
+    --plyr-color-main: rgb(138, 127, 101);
+    --visited-links: rgb(243, 96, 223)
+    --hover-links: royalblue;
+    --backgroundcolor: rgb(55, 97, 86);
+    --headercolor: rgb(62, 90, 50);
+    --primaryfont: "League Spartan", sans-serif;
+    --secondaryfont:  "League Gothic", sans-serif;
+    /* audio controls color */
+    --plyr-audio-control-color: rgb(238, 255, 0);
+    /* font family for player */
+    --plyr-font-family: sans-serif;
+    /* font size of player  */
+    --plyr-font-size-time: 16px;
+  
+    /* Other optional customiziations */
+    --plyr-audio-control-color-hover:  rgb(117, 69, 69);
+    --plyr-audio-progress-buffered-background:  black;
+    --plyr-audio-range-track-background: rgb(119, 170, 0);
+    --plyr-tooltip-background: rgb(194, 224, 199);
+    --plyr-tooltip-color: black; 
+    --plyr-control-icon-size: 20px;
+    --plyr-audio-controls-background: rgb(18, 58, 25);
+  }
 
+@media print {
+    body {
+        background: var(--backgroundcolor);
+    }
+    main {
+        /* Fixed width center align */
+        max-width: 60em;
+        margin-inline: auto;
+        background: var(--plyr-audio-controls-background);
+    }
+    article {
+        /* flow content horizontally */
+        display: flex;
+    /*     flex-direction: row; */
+      flex-wrap: wrap;
+        gap: 1em;
+        justify-content: center;
+    
+    }
     /* hide */
-    audio {
+    .audio {
         display: none;
     }
-    
+
+    h1 {
+        font-family: var(--primaryfont);
+        color: var(--headercolor);
+          padding-left: 50px;
+          padding-top: 50px;
+        }
+        
+        h2{
+            font-family: var(--primaryfont);
+            color: var(--headercolor);
+          padding-left: 50px;
+          padding-top: 25px;
+          padding-bottom: 25px;
+        }
+        
+        h3{
+            font-family: var(--primaryfont);
+            color: var(--plyr-color-main);
+        }
+
+
+        section{
+            margin: 50px;
+            padding: 50px;
+            max-width: 20em;
+            
+          }
+          
+          .image{
+              position: relative;
+              left: -50%;
+              margin: 0px;
+          }
+         
+          img{
+            width: 100%;
+            height: auto;
+        }
+          
+          .verse{
+              border: ridge 10px var(--plyr-color-main);
+              background-color: #232323;
+          }
+          
+          
+          p{
+            color: var(--plyr-color-main);
+            font-family: var(--secondaryfont)
+          }
+/* Footer */
+footer {
+    text-align: center;
+    font-family: var(--primaryfont);
+    padding-bottom: 50px;
+  }
+  footer a {
+    color: var(--plyr-color-main); /* Default link color */
+  }
+  
+  footer a:visited {
+      color: var(--visited-links); /* Color after the link has been visited */
+  }
+  
+  footer a:hover {
+      color: var(--hover-links); /* Color when the mouse hovers over the link */
+  }
     /* print links */
-    a[href]::after {
-        content: " " attr( href )
+    a[href = "https://www.youtube.com/watch?v=scyC9A6o_Ts"]:after {
+        content: "----Goes to youtube video of song----" attr(href)
+    }
+
+    a[href = "https://genius.com/Rage-against-the-machine-people-of-the-sun-lyrics"]::after {
+        content: "----Goes to genius.com for Lyrics ----" attr( href )
     }
     
     /* paper sizing */
@@ -16,4 +130,3 @@
     }
 
 }
-
